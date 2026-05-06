@@ -8,75 +8,114 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="watermark">Ifroz ❄️</div>
+    <div class="watermark">Russo ❄️</div>
     <header>
         <div class="container">
-            <h1>LOJA VIP <span>IFROZ</span></h1>
+            <h1>LOJA VIP <span>RUSSO</span></h1>
             <p>Os melhores preços para o seu VIP!</p>
         </div>
     </header>
 
     <main class="container">
         <section class="categories">
-            <h2>Categorias de VIP</h2>
+            <h2>Meus Jogos</h2>
             <div class="grid">
-                <!-- Bonus no RP (Antigo Bronze) -->
-                <div class="card">
-                    <div class="card-header bronze">
-                        <h3>Bonus no RP</h3>
+                <!-- Mini Rp -->
+                <div class="card game-card">
+                    <div class="card-header game">
+                        <h3>Mini Rp</h3>
+                        <span class="badge">LANÇAMENTO</span>
                     </div>
                     <div class="card-body">
+                        <div class="game-preview">
+                            <img src="input_file_0.png" alt="Preview 1" class="preview-img">
+                            <div class="preview-dots">
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
                         <ul>
-                            <li>Tag exclusiva em cima do player</li>
-                            <li>Salário de 20k cada 1h no game</li>
-                            <li>Bônus de 1x</li>
-                            <li class="rank-label">Bronze</li>
+                            <li>Sistema de Empregos</li>
+                            <li>Mapa Otimizado</li>
+                            <li>Scripts de Carro Inclusos</li>
+                            <li class="desc">Um jogo de Roleplay completo e leve para você começar seu próprio servidor.</li>
                         </ul>
-                        <div class="price">R$ 80,00</div>
-                        <a href="https://www.roblox.com/game-pass/1760833225" target="_blank" class="btn">Comprar Agora</a>
-                    </div>
-                </div>
-
-                <!-- Vip Spotify (Antigo Prata) -->
-                <div class="card featured">
-                    <div class="card-header spotify">
-                        <h3>Vip Spotify</h3>
-                        <span class="badge">MAIS VENDIDO</span>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Perm Spotify</li>
-                            <li class="desc">Permite que o jogador use o sistema de música/Spotify dentro do jogo, podendo tocar músicas enquanto joga. Ideal para quem quer ouvir música durante o RP ou eventos.</li>
-                            <li class="rank-label">Prata</li>
-                        </ul>
-                        <div class="price">R$ 150,00</div>
-                        <a href="https://www.roblox.com/game-pass/1769647854" target="_blank" class="btn">Comprar Agora</a>
-                    </div>
-                </div>
-
-                <!-- Perm Freecam (Antigo Ouro) -->
-                <div class="card">
-                    <div class="card-header freecam">
-                        <h3>Perm Freecam</h3>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Perm Freecam</li>
-                            <li class="desc">Permite usar a câmera livre (Freecam), podendo voar pelo mapa e observar o jogo sem o personagem aparecer. Muito usado para gravações, administração e eventos.</li>
-                            <li class="rank-label">Ouro</li>
-                        </ul>
-                        <div class="price">R$ 200,00</div>
-                        <a href="https://www.roblox.com/game-pass/1769785833" target="_blank" class="btn">Comprar Agora</a>
+                        <div class="price">R$ 20,00</div>
+                        <button class="btn btn-buy" data-product="Mini Rp" data-price="20.00">Comprar Agora</button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Modal de Checkout -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Finalizar Compra - <span id="modalProductName"></span></h2>
+            
+            <div class="checkout-steps">
+                <div class="step active" id="step1">
+                    <h3>1. Seus Dados</h3>
+                    <input type="text" id="userName" placeholder="Seu Nome Completo" required>
+                    <button class="btn next-step">Próximo</button>
+                </div>
+
+                <div class="step" id="step2">
+                    <h3>2. Forma de Pagamento</h3>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="pix" checked>
+                            <span class="option-box">
+                                <i class="icon">📱</i>
+                                PIX (CPF)
+                            </span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card">
+                            <span class="option-box">
+                                <i class="icon">💳</i>
+                                Cartão
+                            </span>
+                        </label>
+                    </div>
+
+                    <div id="pixArea" class="payment-detail">
+                        <p>Chave PIX (CPF): <strong>49548722860</strong></p>
+                        <p class="small">Pague e anexe o comprovante ou clique em confirmar após pagar.</p>
+                    </div>
+
+                    <div id="cardArea" class="payment-detail" style="display:none;">
+                        <input type="text" placeholder="Número do Cartão">
+                        <div class="row">
+                            <input type="text" placeholder="MM/AA">
+                            <input type="text" placeholder="CVV">
+                        </div>
+                    </div>
+
+                    <button class="btn finish-buy">Confirmar Pagamento</button>
+                </div>
+
+                <div class="step" id="step3">
+                    <div class="success-message">
+                        <i class="success-icon">✅</i>
+                        <h3>Pagamento Confirmado!</h3>
+                        <p>Obrigado, <span id="confirmedName"></span>!</p>
+                        <p>Seu download começará em instantes...</p>
+                        <a href="#" id="downloadLink" class="btn" download="MiniRp_Place.rbxl">Baixar Agora Manualmente</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 Loja Vip Ifroz. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Loja Vip Russo. Todos os direitos reservados.</p>
         <p>Desenvolvida por <strong>Russo</strong></p>
-        <p>Acesse nosso <a href="https://discord.gg/jU9xz342" target="_blank">Discord</a> para suporte.</p>
+        <p>Acesse nosso <a href="https://discord.gg/N7VJunXb" target="_blank">Discord</a> para suporte.</p>
     </footer>
 
     <script src="script.js"></script>
